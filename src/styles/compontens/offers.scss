@@ -1,0 +1,52 @@
+.offers {
+  padding-top: $section-padding-top;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left, &__right {
+    width: 49%;
+  }
+
+  &__item {
+    height: 542px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    transition: .3s;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+
+    &--small {
+      height: 261px;
+    }
+
+    &-img {
+      height: 100%;
+      width: 100%;
+    }
+
+    &-text {
+      position: absolute;
+      top: 25px;
+      background: white;
+      padding: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $text-color;
+
+      h1 {
+        color: $main-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.subscribe {
+  box-sizing: border-box;
+  width: 1618px;
+  height: 438px;
+  margin: $section-padding-top auto 0 auto;
+  background:  linear-gradient(rgba(234, 231, 231, 0.45),
+          rgba(227, 226, 226, 0.45)),
+          url("/../../assets/img/subcribe-backgroun.jpg")
+          no-repeat center;
+  background-size: cover;
+
+  & .container {
+    display: flex;
+    height: 100%;
+    padding: 0;
+  }
+
+  &__left, &__rigth {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &__left {
+    border-right: 1px solid white;
+  }
+
+  &__slider {
+    width: 500px;
+    float: left;
+    margin-top: 123px;
+
+    &-navs {
+      display: flex;
+      justify-content: flex-start;
+      padding: 20px 0 0 110px;
+
+      & div {
+        height: 4px;
+        width: 38px;
+        background: $border-color;
+      }
+
+      & li {
+        margin-right: 10px;
+        padding: 10px 0;
+        cursor: pointer;
+
+        &:hover div {
+          background: $main-color;
+        }
+      }
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+
+      &-photo-wrap {
+        height: $comment-photo-size;
+        width: $comment-photo-size;
+        border-radius: 50%;
+        overflow: hidden;
+        background: none;
+
+        & img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      &-text {
+        width: 386px;
+
+        &-body {
+          font-style: italic;
+          font-weight: bold;
+          margin-bottom: 10px;
+          line-height: 26px;
+        }
+
+        &-author {
+          color: $main-color;
+          font-weight: bold;
+        }
+
+        &-location {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &__form {
+    margin: 150px 0 0 90px;
+
+    & h2, p {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    & p {
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    &-email {
+      display: flex;
+
+      & input, button {
+        margin: 0;
+        border: none;
+        line-height: 46px;
+      }
+
+      & button {
+        border-radius: 0 23px 23px 0;
+        background: $main-color;
+        padding: $input-padding;
+        color: white;
+        transition: $transition-time;
+        cursor: pointer;
+
+        &:hover {
+          color: $main-color;
+          background: white;
+        }
+      }
+
+      & input {
+        padding: $input-padding;
+        width: 280px;
+        background-color: #e1e1e1;
+        border-radius: 23px 0 0 23px;
+        outline: none;
+      }
+    }
+  }
+}

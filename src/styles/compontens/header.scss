@@ -1,0 +1,73 @@
+.header {
+  border-bottom: 1px solid $border-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin-right: 35px;
+  }
+
+  &__left, &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form {
+    display: flex;
+    height: $header-form-height;
+    border: 1px solid $border-color;
+    border-radius: 0 3px 3px 0;
+
+    &-browse-btn {
+      padding: 0 15px;
+      line-height: $header-form-height;
+      background: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+      cursor: pointer;
+
+      &:after {
+        @include fa-icon('\f0d7');
+        margin-left: $btn-icon-margin;
+      }
+    }
+
+    &-input {
+      width: 280px;
+      line-height: $header-form-height;
+      padding: $input-padding;
+      border-style: none;
+      border-left: $default-border;
+      border-right: $default-border;
+    }
+
+    &-submit-btn {
+      line-height: $header-form-height;
+      width: $header-form-height;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: $light-text-color;
+
+      &:after {
+        @include fa-icon('\f002');
+      }
+    }
+  }
+
+  &__account-btn {
+    @include btn();
+    margin-left: 25px;
+
+    &:after {
+      @include fa-icon('\f0d7');
+      margin-left: 10px;
+      transition: $transition-time;
+    }
+  }
+
+  &__cart-btn {
+    cursor: pointer;
+  }
+}

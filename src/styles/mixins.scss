@@ -1,0 +1,27 @@
+@mixin btn($color: white, $background: $main-color) {
+  background: $background;
+  color: $color;
+  border: 1px solid $main-color;
+  transition: .3s;
+  padding: 1em;
+
+  &:after {
+    color: $color;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $main-color;
+    background-color: $color;
+  }
+
+  &:hover:after {
+    color: $background;
+  }
+}
+
+@mixin fa-icon($content: '') {
+  font-family: 'FontAwesome', sans-serif;
+  content: $content;
+  transition: $transition-time;
+}

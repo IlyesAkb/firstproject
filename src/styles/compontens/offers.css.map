@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEE,kBAAa;EACX,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;AAGhC,6BAAkB;EAChB,KAAK,EAAE,GAAG;AAGZ,aAAQ;EACN,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,IAAI;EAEX,oBAAS;IACP,MAAM,EAAE,KAAK",
+"sources": ["offers.scss"],
+"names": [],
+"file": "offers.css"
+}

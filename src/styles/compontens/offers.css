@@ -1,0 +1,12 @@
+.offers__container {
+  display: flex;
+  justify-content: space-between; }
+.offers__left, .offers__right {
+  width: 49%; }
+.offers__item {
+  height: 542px;
+  width: 100%; }
+  .offers__item--small {
+    height: 261px; }
+
+/*# sourceMappingURL=offers.css.map */
