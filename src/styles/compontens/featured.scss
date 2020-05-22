@@ -12,12 +12,6 @@
     }
   }
 
-  &__products-list {
-    & .products-list__item {
-      width: 23%;
-    }
-  }
-
   &__btn {
     @include btn();
     display: inline-block;

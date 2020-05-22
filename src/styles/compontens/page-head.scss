@@ -1,0 +1,42 @@
+.page-head {
+  background-color: #f8f3f4;
+  padding: 65px 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  & h1 {
+    color: $main-color;
+  }
+
+  &__breadcrumbs {
+    display: flex;
+
+    &-link {
+      color: $light-text-color;
+      transition: $transition-time;
+
+      &:hover {
+        color: $main-color;
+      }
+
+      &:after {
+        content: '/';
+        color: $light-text-color!important;
+      }
+
+      &:last-of-type {
+        color: $main-color;
+        font-weight: bold;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
