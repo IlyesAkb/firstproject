@@ -25,3 +25,20 @@
   content: $content;
   transition: $transition-time;
 }
+
+@mixin cart-btn {
+  padding: 1em;
+  text-align: center;
+  color: $text-color;
+  border: $default-border;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: $transition-time;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  &:hover {
+    color: $main-color;
+    border: 1px solid $main-color;
+  }
+}

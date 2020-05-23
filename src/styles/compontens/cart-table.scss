@@ -1,0 +1,103 @@
+.cart__table {
+  width: 100%;
+  border-collapse: collapse;
+
+  & th {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  & td {
+    color: $light-text-color;
+  }
+
+  & th, td {
+    border-bottom: $default-border;
+    padding: 1em 0;
+    text-align: center;
+    width: 12%;
+
+    &:first-of-type {
+      width: 40%;
+      text-align: left;
+    }
+
+    &:last-of-type {
+      text-align: right;
+      width: 5%;
+    }
+  }
+
+  &-item {
+    &-preview {
+      display: flex;
+
+      &-img-wrap {
+        width: 100px;
+        margin-right: 1rem;
+
+        & img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      &-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $text-color;
+        font-size: 13px;
+        margin-bottom: 1em;
+      }
+
+      & span {
+        color: $text-color
+      }
+    }
+
+    &-info {
+      text-transform: uppercase;
+    }
+
+    &-quantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-wrap {
+        display: inline-block;
+        width: 50%;
+      }
+
+      &-btn {
+        padding: 5px;
+        font-size: 8px;
+        background: $light-text-color;
+        transition: $transition-time;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+          background: $main-color;
+        }
+
+        &:active {
+          background: $light-text-color;
+        }
+      }
+    }
+
+    &-remove-btn {
+      display: inline-block;
+      padding: 1rem;
+      cursor: pointer;
+      transition: $transition-time;
+      color: $text-color;
+
+      &:hover {
+        color: $light-text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.cart__order {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+
+  &-wrap {
+    padding: 45px;
+    background-color: #f5f3f3;
+  }
+
+  &-total {
+    padding-bottom: 1rem;
+    border-bottom: $default-border;
+
+
+    & p {
+      color: $text-color;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    & span {
+      margin-left: 1rem;
+      color: $main-color;
+    }
+  }
+
+  &-btn {
+    @include btn();
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 273px;
+  }
+}

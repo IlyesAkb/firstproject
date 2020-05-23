@@ -3,7 +3,6 @@
 @import "vars";
 @import "mixins";
 @import "fonts";
-
 @import "~nouislider/distribute/nouislider.css";
 @import "./compontens/header";
 @import "./compontens/nav";
@@ -16,6 +15,10 @@
 @import "./compontens/footer";
 @import "./compontens/page-head";
 @import "./compontens/catalog-form";
+@import "./compontens/cart-table";
+@import "./compontens/cart-actions";
+@import "./compontens/cart-order";
+@import "./compontens/mini-cart";
 
 body {
   font-size: $main-font-size;

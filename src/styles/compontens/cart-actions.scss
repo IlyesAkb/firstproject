@@ -1,0 +1,19 @@
+.cart__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  & button {
+    @include btn($light-text-color);
+    background: white;
+    border: $default-border;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:hover {
+      background: none;
+      color: $text-color;
+      border: 1px solid black;
+    }
+  }
+}

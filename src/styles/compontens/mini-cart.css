@@ -1,0 +1,9 @@
+.mini-cart {
+  position: relative; }
+  .mini-cart__dropdown {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 270px; }
+
+/*# sourceMappingURL=mini-cart.css.map */

@@ -1,0 +1,92 @@
+.mini-cart {
+  position: relative;
+
+  &__dropdown {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 270px;
+    z-index: 99;
+    background: white;
+    border: $default-border;
+    border-radius: 5px;
+    left: -18px;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      border-top: $default-border;
+      border-left: $default-border;
+      height: 10px;
+      width: 10px;
+      background: white;
+      z-index: 100;
+      left: 30px;
+      top: -6px;
+      transform: rotate(45deg);
+
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: $default-border;
+
+    &:first-of-type {
+      padding: 0 0 1rem 0;
+    }
+
+    &-img-wrap {
+      width: 72px;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    &-text {
+      font-size: 12px;
+
+      &-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+      }
+
+      &-quantity {
+        color: $main-color;
+      }
+    }
+
+    &-remove-btn {
+      padding: 1rem 0 1rem 1rem;
+      color: $light-text-color;
+      transition: $transition-time;
+      justify-self: flex-end;
+      align-self: center;
+
+      &:hover {
+        color: $text-color;
+
+      }
+    }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  &__btn-open {
+    @include cart-btn();
+  }
+}
