@@ -1,0 +1,121 @@
+@import "~normalize.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "~nouislider/distribute/nouislider.css";
+@import "./compontens/header";
+@import "./compontens/nav";
+@import "./compontens/slider";
+@import "./compontens/offers";
+@import "./compontens/featured";
+@import "./compontens/products-list";
+@import "./compontens/info";
+@import "./compontens/subcribe";
+@import "./compontens/footer";
+@import "./compontens/page-head";
+@import "./compontens/catalog-form";
+@import "./compontens/cart-table";
+@import "./compontens/cart-actions";
+@import "./compontens/cart-order";
+@import "./compontens/mini-cart";
+
+body {
+  font-size: $main-font-size;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.wrapper {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 27px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #222222;
+
+  & img {
+    margin-right: 10px;
+  }
+
+  & span {
+    color: $main-color;
+    font-weight: bold;
+  }
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 12px;
+  text-transform: uppercase;
+  color: $light-text-color;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  & .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background: none;
+    border: $default-border;
+    line-height: 12px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 0;
+      width: 3px;
+      height: 8px;
+      border: solid $text-color;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+}

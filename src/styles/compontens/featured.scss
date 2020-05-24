@@ -1,0 +1,30 @@
+.featured {
+  padding-top: $section-padding-top;
+
+  &__heading {
+    color: $text-color;
+    text-align: center;
+    margin-bottom: 60px;
+
+    & p {
+      padding-top: 1em;
+      color: $light-text-color
+    }
+  }
+
+  &__btn {
+    @include btn();
+    display: inline-block;
+    margin: 0 auto;
+
+    &-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    &:after {
+      margin-left: $btn-icon-margin;
+      @include fa-icon('\f178')
+    }
+  }
+}

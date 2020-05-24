@@ -1,0 +1,151 @@
+.catalog {
+
+  &__form {
+
+    &-top, &-bottom {
+      display: flex;
+      width: 100%;
+    }
+
+    &-top {
+      justify-content: space-between;
+    }
+
+    & h3 {
+      text-transform: uppercase;
+      color: $light-text-color;
+      margin-bottom: 20px;
+    }
+
+    &-size {
+      margin-right: 40px;
+
+      &-container {
+        display: flex;
+      }
+
+    }
+
+    &-price {
+
+      &-slider {
+        width: 262px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: #f0f0f0;
+        border: none;
+
+        & .noUi {
+
+          &-connect {
+            background: $main-color;
+          }
+
+          &-handle {
+            height: 14px;
+            width: 14px;
+            border-radius: 7px;
+            background: $main-color;
+            box-shadow: none;
+            right: -5px;
+            top: -4px;
+            outline: none;
+            border: none;
+
+            &:before, &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-bottom {
+      margin-top: 2rem;
+      padding: 10px;
+      background-color: #f3f3f3;
+
+      &-select {
+        border: $default-border;
+        height: $select-height;
+        display: flex;
+        position: relative;
+        margin-right: 10px;
+
+
+        &::after {
+          @include fa-icon('\f0d7');
+          position: absolute;
+          right: 10px;
+          top: 7px;
+        }
+
+        & label, select {
+          line-height: $select-height;
+          background: white;
+        }
+
+        & label {
+          display: block;
+          border-right: $default-border;
+          padding: 0 1rem;
+        }
+
+        & select {
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          outline: none;
+          border: none;
+          position: relative;
+          padding: 0 2rem 0 1rem;
+
+          &::-ms-expand {
+            display: none;
+          }
+
+          & option {
+            height: $select-height;
+          }
+        }
+      }
+    }
+  }
+
+  &__products-list {
+    width: 846px;
+    margin: 50px auto;
+  }
+
+  &__bottom {
+    width: 846px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    &-btn {
+      @include btn();
+      border-radius: 3px;
+    }
+
+    &-pagination {
+      border: $default-border;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+
+      & a {
+        line-height: 40px;
+        padding: 0 15px;
+        font-size: 16px;
+        color: $light-text-color;
+        transition: $transition-time;
+        font-weight: bold;
+
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
+}
+

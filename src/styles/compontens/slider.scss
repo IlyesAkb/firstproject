@@ -1,0 +1,40 @@
+.slider {
+  height: $slider-height;
+  background-color: #e8e8e8;
+  overflow: hidden;
+
+  &__container {
+    height: 100%;
+    background-image: url("/../../assets/img/slider.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+
+  &__text {
+    font-weight: bolder;
+    color: $text-color;
+    border-left: 12px solid $main-color;
+    padding: 0 0 0 12px;
+    float: left;
+    margin-top: 224px;
+
+    & h1, h2 {
+      margin: 0;
+    }
+
+    & h1 {
+      font-size: $biggest-font-size;
+      line-height: 43px;
+      margin-bottom: 1rem;
+    }
+
+    & h2 {
+      font-size: $big-font-size;
+      line-height: 31px;
+
+      & span {
+        color: $main-color;
+      }
+    }
+  }
+}

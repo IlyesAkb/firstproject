@@ -1,0 +1,80 @@
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+
+  &__item {
+    margin-bottom: 20px;
+    transition: $transition-time;
+    position: relative;
+    width: 263px;
+
+    &:hover {
+      box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    &:hover &-img {
+      filter: brightness(0.5);
+    }
+
+    &:hover &-add-btn {
+      display: flex;
+    }
+
+    &-img-wrap {
+      width: 100%;
+    }
+
+    &-img {
+      width: 100%;
+      transition: $transition-time;
+    }
+
+    &-add-btn {
+      padding: 1rem;
+      border: 1px solid white;
+      color: white;
+      transition: $transition-time;
+      position: absolute;
+      top: 100px;
+      left: 65px;
+      align-items: center;
+      cursor: pointer;
+      display: none;
+
+      &:before {
+        content: url("/../../assets/img/icon-add-to-cart.svg");
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        box-shadow: 0 0 5px rgb(255, 255, 255);
+      }
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+
+    &-link {
+      padding: 20px;
+
+      & p {
+        text-transform: uppercase;
+        color: $text-color;
+        transition: .3s;
+        margin-bottom: 1em;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      &:hover p{
+        color: $main-color;
+      }
+    }
+  }
+}

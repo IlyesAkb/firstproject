@@ -1,0 +1,60 @@
+.info {
+  padding-top: $section-padding-top;
+
+  &__container {
+    display: flex;
+    height: 529px;
+  }
+
+  &__sale {
+    height: 100%;
+    background-image: url("/../../assets/img/sale-img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 70%;
+
+    &-text {
+      color: white;
+      letter-spacing: 2px;
+      float: left;
+      margin: 150px 40px;
+
+      &-big-heading {
+        font-size: 54px;
+
+        & span {
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  &__advantages {
+    width: 30%;
+    background-color: #222224;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    &-item {
+      display: flex;
+      justify-content: flex-start;
+      color: white;
+      font-weight: 400;
+
+      &-text {
+        margin-left: 20px;
+        & h2 {
+          margin-bottom: 10px;
+        }
+
+        & p {
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}

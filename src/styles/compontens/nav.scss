@@ -1,0 +1,24 @@
+.main-nav {
+  border-bottom: $default-border;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    width: 1200px;
+
+    a {
+      color: $text-color;
+      line-height: 50px;
+      padding: 0 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: color .3s;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+}
