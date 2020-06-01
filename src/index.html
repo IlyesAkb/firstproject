@@ -34,66 +34,9 @@
 
         <!--header right side-->
         <div class="header__right">
-          <div class="mini-cart header__mini-cart">
-            <div class="header__mini-cart-btn mini-cart__btn">
-              <img src="./assets/img/icon-cart.svg" alt="icon">
-            </div>
+          <div class="mini-cart header__mini-cart" data-type="miniCart">
 
-            <div class="mini-cart__dropdown">
-
-              <div class="mini-cart__items-container">
-                <div class="mini-cart__item">
-
-                  <div class="mini-cart__item-img-wrap">
-                    <img src="./assets/img/products/product-img-1.jpg" alt="mini cart item">
-                  </div>
-
-                  <div class="mini-cart__item-text">
-                    <p class="mini-cart__item-text-name">Rebox Zane</p>
-                    <p class="mini-cart__item-text-quantity"><span>1</span> X <span>&dollar;250</span></p>
-                  </div>
-
-                  <div class="mini-cart__item-remove-btn"><i class="fas fa-times-circle"></i></div>
-
-                </div>
-                <div class="mini-cart__item">
-
-                  <div class="mini-cart__item-img-wrap">
-                    <img src="./assets/img/products/product-img-1.jpg" alt="mini cart item">
-                  </div>
-
-                  <div class="mini-cart__item-text">
-                    <p class="mini-cart__item-text-name">Rebox Zane</p>
-                    <p class="mini-cart__item-text-quantity"><span>1</span> X <span>&dollar;250</span></p>
-                  </div>
-
-                  <div class="mini-cart__item-remove-btn"><i class="fas fa-times-circle"></i></div>
-
-                </div>
-                <div class="mini-cart__item">
-
-                  <div class="mini-cart__item-img-wrap">
-                    <img src="./assets/img/products/product-img-1.jpg" alt="mini cart item">
-                  </div>
-
-                  <div class="mini-cart__item-text">
-                    <p class="mini-cart__item-text-name">Rebox Zane</p>
-                    <p class="mini-cart__item-text-quantity"><span>1</span> X <span>&dollar;250</span></p>
-                  </div>
-
-                  <div class="mini-cart__item-remove-btn"><i class="fas fa-times-circle"></i></div>
-
-                </div>
-              </div>
-
-              <div class="mini-cart__total">
-                <span>total</span>
-                <span>&dollar;500</span>
-              </div>
-
-              <div class="mini-cart__btn-open">go to cart</div>
-
-            </div>
+            <!--mini-cart-content-->
 
           </div>
           <div class="header__account-btn">My Account</div>
@@ -102,215 +45,16 @@
     </header>
 
     <!--main menu-->
-    <nav class="main-nav">
+    <nav class="main-nav" data-type="navbar">
       <ul class="main-nav__container">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Man</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">Kids</a></li>
-        <li><a href="#">Accoseriese</a></li>
-        <li><a href="#">Featured</a></li>
-        <li><a href="#">Hot Deals</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#cart">Cart</a></li>
       </ul>
     </nav>
 
-    <!--slider-->
-    <section class="slider">
-      <div class="container slider__container">
-        <div class="slider__text">
-          <h1>THE BRAND</h1>
-          <h2>OF LUXERIOUS <span>FASHION</span></h2>
-        </div>
-      </div>
-    </section>
+    <div class="router" data-type="router"></div>
 
-    <!--offers section-->
-    <section class="offers">
-      <div class="container offers__container">
-        <div class="offers__left">
-
-          <a href="#" class="offers__item">
-
-            <div class="offers__item-text">
-              <h3>hOT dEAL</h3>
-              <h1>FOR MEN</h1>
-            </div>
-
-            <img src="./assets/img/offers/offer-1.jpg" alt="offer-img" class="offers__item-img">
-
-          </a>
-
-          <a href="#" class="offers__item offers__item--small">
-
-            <div class="offers__item-text">
-              <h3>LUXIROUS & trendy</h3>
-              <h1>ACCESORIES</h1>
-            </div>
-
-            <img src="./assets/img/offers/offer-2.jpg" alt="offer-img" class="offers__item-img">
-
-          </a>
-
-        </div>
-
-        <div class="offers__right">
-
-          <a href="#" class="offers__item offers__item--small">
-
-            <div class="offers__item-text">
-              <h3>30% offer</h3>
-              <h1>women</h1>
-            </div>
-
-            <img src="./assets/img/offers/offer-3.jpg" alt="offer-img" class="offers__item-img">
-
-          </a>
-
-          <a href="#" class="offers__item">
-
-            <div class="offers__item-text">
-              <h3>new arrivals</h3>
-              <h1>FOR kids</h1>
-            </div>
-
-            <img src="./assets/img/offers/offer-4.jpg" alt="offer-img" class="offers__item-img">
-
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!--featured products-->
-    <section class="featured">
-      <div class="container featured__container">
-
-        <div class="featured__heading">
-          <h1>Featured Items</h1>
-          <p>Shop for items based on what we featured in this week</p>
-        </div>
-
-        <div class="products-list featured__products-list" data-type="productsList">
-
-          <div class="products-list__item">
-            <div class="products-list__item-img-wrap">
-              <img src="./assets/img/products/product-img-1.jpg" alt="item-img" class="products-list__item-img">
-            </div>
-            <div class="products-list__item-add-btn">
-              <span>Add to Cart</span>
-            </div>
-            <a href="#" class="products-list__item-link">
-              <p class="products-list__item-name"><strong>Mango People T-shirt</strong></p>
-              <p class="products-list__item-price"><strong>&dollar;52.00</strong></p>
-            </a>
-          </div>
-
-        </div>
-
-        <div class="featured__btn-wrap">
-          <div class="featured__btn">Browse All Product</div>
-        </div>
-      </div>
-    </section>
-
-    <!--info section-->
-    <section class="info">
-      <div class="container info__container">
-        <div class="info__sale">
-          <div class="info__sale-text">
-            <h1 class="info__sale-text-big-heading">30% <span>OFFER</span></h1>
-            <h1>FOR WOMEN</h1>
-          </div>
-        </div>
-        <div class="info__advantages">
-
-          <div class="info__advantages-item">
-            <div class="info__advantages-item-icon">
-              <img src="./assets/img/info/icon-info-1.svg" alt="info-icon">
-            </div>
-            <div class="info__advantages-item-text">
-              <h2>Free Delivery</h2>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-            </div>
-          </div>
-
-          <div class="info__advantages-item">
-            <div class="info__advantages-item-icon">
-              <img src="./assets/img/info/icon-info-2.svg" alt="info-icon">
-            </div>
-            <div class="info__advantages-item-text">
-              <h2>Sales & discounts</h2>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-            </div>
-          </div>
-
-          <div class="info__advantages-item">
-            <div class="info__advantages-item-icon">
-              <img src="./assets/img/info/icon-info-3.svg" alt="info-icon">
-            </div>
-            <div class="info__advantages-item-text">
-              <h2>Quality assurance</h2>
-              <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!--subscribe section-->
-    <section class="subscribe">
-      <div class="container subscribe__container">
-
-        <div class="subscribe__left">
-
-          <!--slider with comments-->
-          <div class="subscribe__slider">
-
-            <div class="subscribe__slider-item">
-              <div class="subscribe__slider-item-photo-wrap">
-                <img src="./src/assets/img/comment-img.jpg" alt="comment-photo"/>
-              </div>
-              <div class="subscribe__slider-item-text">
-                <p class="subscribe__slider-item-text-body">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
-                  a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
-                <p class="subscribe__slider-item-text-author">Bin Burhan</p>
-                <p class="subscribe__slider-item-text-location">Dhaka, Bd</p>
-              </div>
-            </div>
-
-            <ul class="subscribe__slider-navs">
-              <li>
-                <div></div>
-              </li>
-              <li>
-                <div></div>
-              </li>
-              <li>
-                <div></div>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <div class="subscribe__right">
-
-          <!--subscribe form-->
-          <form action="#" class="subscribe__form">
-            <h2>Subscribe</h2>
-            <p>FOR OUR NEWLETTER AND PROMOTION</p>
-            <div class="subscribe__form-email">
-              <input type="email">
-              <button type="submit">Subscribe</button>
-            </div>
-          </form>
-
-        </div>
-
-      </div>
-    </section>
   </div>
 
   <!--footer-->
@@ -323,7 +67,9 @@
           bran<span>d</span>
         </a>
         <p class="footer__text">
-          Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
+          Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+          multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes
+          and cross-unit partnerships.
         </p>
         <p class="footer__text">Efficiently plagiarize 24/365 action items and focused infomediaries.
           Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
@@ -369,7 +115,7 @@
 
     <div class="footer__bottom">
       <div class="container footer__bottom-container">
-        <p class="footer__bottom-copyright">&copy; 2017  Brand  All Rights Reserved.</p>
+        <p class="footer__bottom-copyright">&copy; 2017 Brand All Rights Reserved.</p>
         <ul class="footer__bottom-social">
           <li><a href="#" class="footer__bottom-social-link"><i class="fab fa-facebook"></i></a></li>
           <li><a href="#" class="footer__bottom-social-link"><i class="fab fa-twitter"></i></a></li>

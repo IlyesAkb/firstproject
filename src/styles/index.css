@@ -89,6 +89,8 @@
       transition: color .3s; }
       .main-nav__container a:hover {
         color: #f16d7f; }
+      .main-nav__container a.active {
+        color: #f16d7f; }
 
 .slider {
   height: 613px;
@@ -529,7 +531,7 @@
         display: none; }
       .catalog__form-bottom-select select option {
         height: 30px; }
-.catalog__products-list {
+.catalog .products-list {
   width: 846px;
   margin: 50px auto; }
 .catalog__bottom {
@@ -699,6 +701,7 @@
 .mini-cart {
   position: relative; }
   .mini-cart__dropdown {
+    display: none;
     position: absolute;
     box-sizing: border-box;
     padding: 20px;
@@ -708,6 +711,8 @@
     border: 1px solid #ececec;
     border-radius: 5px;
     left: -18px; }
+    .mini-cart__dropdown.active {
+      display: block; }
     .mini-cart__dropdown:after {
       content: '';
       display: block;
@@ -721,33 +726,34 @@
       left: 30px;
       top: -6px;
       transform: rotate(45deg); }
-  .mini-cart__item {
+  .mini-cart .cart-item {
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 1rem 0;
     border-bottom: 1px solid #ececec; }
-    .mini-cart__item:first-of-type {
+    .mini-cart .cart-item:first-of-type {
       padding: 0 0 1rem 0; }
-    .mini-cart__item-img-wrap {
-      width: 72px; }
-      .mini-cart__item-img-wrap img {
+    .mini-cart .cart-item__img-wrap {
+      width: 72px;
+      margin-right: 15px; }
+      .mini-cart .cart-item__img-wrap img {
         width: 100%; }
-    .mini-cart__item-text {
+    .mini-cart .cart-item__text {
       font-size: 12px; }
-      .mini-cart__item-text-name {
+      .mini-cart .cart-item__text-name {
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 10px; }
-      .mini-cart__item-text-quantity {
+      .mini-cart .cart-item__text-quantity {
         color: #f16d7f; }
-    .mini-cart__item-remove-btn {
+    .mini-cart .cart-item__remove-btn {
       padding: 1rem 0 1rem 1rem;
       color: #9f9f9f;
       transition: 0.3s;
       justify-self: flex-end;
       align-self: center; }
-      .mini-cart__item-remove-btn:hover {
+      .mini-cart .cart-item__remove-btn:hover {
         color: #222222; }
   .mini-cart__total {
     display: flex;
