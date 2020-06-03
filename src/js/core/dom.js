@@ -13,6 +13,14 @@ class DomElement {
     return this.$el.outerHTML.trim()
   }
 
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.innerText = text
+      return this
+    }
+    return this.$el.innerText.trim()
+  }
+
   append(node) {
     if (node instanceof DomElement) {
       node = node.$el
@@ -41,8 +49,21 @@ class DomElement {
     return this
   }
 
+  toggleClass(className) {
+    this.$el.classList.toggle(className)
+    return this
+  }
+
   hasClass(className) {
     return this.$el.classList.contains(className)
+  }
+
+  css(styles = {}) {
+    const keys = Object.keys(styles)
+    keys.forEach(key => {
+      this.$el.style[key] = styles[key]
+    })
+    return this
   }
 
   attr(name, value) {

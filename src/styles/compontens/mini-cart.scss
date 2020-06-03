@@ -1,6 +1,27 @@
 .mini-cart {
   position: relative;
 
+  &__counter {
+    display: none;
+    position: absolute;
+    height: $mini-cart-counter-size;
+    width: $mini-cart-counter-size;
+    border-radius: $mini-cart-counter-size / 2;
+    background-color: $main-color;
+    color: white;
+    text-align: center;
+    line-height: $mini-cart-counter-size;
+    font-weight: bold;
+    font-size: 10px;
+    top: -11px;
+    left: -6px;
+    user-select: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
   &__dropdown {
     display: none;
     position: absolute;
@@ -69,12 +90,17 @@
       }
     }
 
+    &__empty {
+      text-transform: uppercase;
+    }
+
     &__remove-btn {
       padding: 1rem 0 1rem 1rem;
       color: $light-text-color;
       transition: $transition-time;
       justify-self: flex-end;
       align-self: center;
+      user-select: none;
 
       &:hover {
         color: $text-color;
@@ -93,5 +119,6 @@
 
   &__btn-open {
     @include cart-btn();
+    display: block;
   }
 }

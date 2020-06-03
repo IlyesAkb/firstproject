@@ -15,6 +15,10 @@ export class CartItem {
     this.$root.remove()
   }
 
+  get totalPrice() {
+    return this.price * this.quantity
+  }
+
   render() {
     this.$root = $.create('div', 'cart-item')
     this.$root.attr('data-id', this.id.toString())
