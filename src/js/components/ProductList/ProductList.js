@@ -1,7 +1,8 @@
 import {Component} from '@core/Component'
 import {Product} from '@/js/components/ProductList/Product'
-import {PRODUCTS_LIST} from '@core/constants'
+// import {PRODUCTS_LIST} from '@core/constants'
 import {isAdd} from '@/js/components/ProductList/porductList.functions'
+import {getItems} from '@core/utils'
 
 export class ProductList extends Component {
   constructor($root, options = {}) {
@@ -9,7 +10,12 @@ export class ProductList extends Component {
       ...options,
       listeners: ['click']
     })
-    this.list = PRODUCTS_LIST
+    this.list = []
+    this.init()
+  }
+
+  init() {
+    this.list = getItems(8)
   }
 
   static selector = '[data-type="productList"]'

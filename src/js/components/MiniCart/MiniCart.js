@@ -1,7 +1,10 @@
 import {Cart} from '@core/Cart/Cart'
-import {getTemplate} from '@/js/components/MiniCart/miniCart.template'
 import {MiniCartItem} from '@/js/components/MiniCart/MiniCartItem'
+import {getTemplate} from '@/js/components/MiniCart/miniCart.template'
 import {isDelete} from '@core/Cart/cart.functions'
+import {isEmpty} from '@core/utils'
+import {$} from '@core/dom'
+import {CART_COUNTER_SELECTOR} from '@core/constants'
 
 export class MiniCart extends Cart {
   constructor($root, options = {}) {
@@ -15,7 +18,10 @@ export class MiniCart extends Cart {
 
   init() {
     super.init()
-    this.observer.subscribe('product-list: add', this.add)
+    this.observer.subscribe('product-list: add', product => {
+      this.add(product)
+      this.updateCounter()
+    })
     window.addEventListener('click', event => {
       if (!event.target.closest([
         '[data-type="cartRemove"]',
@@ -34,24 +40,35 @@ export class MiniCart extends Cart {
     return getTemplate()
   }
 
-  afterRender() {
-    super.afterRender()
-    this.$dropdown = this.$root.find('.mini-cart__dropdown')
-  }
-
-  toggleDropdown() {
-    if (this.$dropdown.hasClass('active')) {
-      this.$dropdown.removeClass('active')
+  updateCounter() {
+    if (isEmpty(this.cartItems)) {
+      this.count = 0
+      this.$counter.removeClass('active')
     } else {
-      this.$dropdown.addClass('active')
+      this.$counter.text(this.count.toString())
+
+      if (!this.$counter.hasClass('active')) {
+        this.$counter.addClass('active')
+      }
     }
   }
 
+  afterRender() {
+    super.afterRender()
+    this.$dropdown = this.$root.find('.mini-cart__dropdown')
+    this.$counter = this.$root.find(CART_COUNTER_SELECTOR)
+    this.updateCounter()
+  }
+
   onClick(event) {
+    const $target = $(event.target)
     if (isDelete(event.target)) {
-      this.remove(event.target.dataset.id)
-    } else if (event.target.dataset.type === 'cartBtn') {
-      this.toggleDropdown()
+      this.remove($target.data.id)
+      this.updateCounter()
+    } else if ($target.data.type === 'cartBtn') {
+      this.$dropdown.toggleClass('active')
+    } else if ($target.data.type === 'goToCart') {
+      this.$dropdown.removeClass('active')
     }
   }
 }

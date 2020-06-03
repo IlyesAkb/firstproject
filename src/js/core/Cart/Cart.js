@@ -1,6 +1,7 @@
 import {Component} from '@core/Component'
-import {CART_CONTAINER_SELECTOR} from '@core/constants'
-import {isEmpty} from '@core/utils'
+import {CART_CONTAINER_SELECTOR, CART_TOTAL_SELECTOR} from '@core/constants'
+import {getItems, getPrice, isEmpty} from '@core/utils'
+import {calcCount, calcTotal} from '@core/Cart/cart.functions'
 
 export class Cart extends Component {
   constructor($root, options = {}) {
@@ -20,9 +21,11 @@ export class Cart extends Component {
   }
 
   init() {
-    this.cartItems = this.cartItems.map(product => {
+    this.cartItems = getItems(3).map(product => {
       return this.createItem(product)
     })
+    this.count = calcCount(this.cartItems)
+    this.total = calcTotal(this.cartItems)
   }
 
   add(product) {
@@ -38,6 +41,8 @@ export class Cart extends Component {
       this.cartItems.push(item)
       this.$container.append(item.render())
     }
+    this.count = calcCount(this.cartItems)
+    this.renderTotal()
   }
 
   remove(id) {
@@ -50,8 +55,11 @@ export class Cart extends Component {
       this.cartItems.splice(this.cartItems.indexOf(item), 1)
     }
 
+    this.count = calcCount(this.cartItems)
+    this.renderTotal()
+
     if (isEmpty(this.cartItems)) {
-      this.$container.html('<h3>cart is empty</h3>')
+      this.$container.html('<h3 class="cart-item__empty">cart is empty</h3>')
     }
   }
 
@@ -62,11 +70,12 @@ export class Cart extends Component {
     this.count = 0
   }
 
-  getTotal() {
-    return this.cartItems.reduce((total, item) => {
-      total += item.price * item.quantity
-    }, 0)
+  renderTotal() {
+    this.total = calcTotal(this.cartItems)
+    this.$totalCounter.text(getPrice(this.total).toString())
   }
+
+  renderCount() {}
 
   afterRender() {
     super.afterRender()
@@ -76,5 +85,8 @@ export class Cart extends Component {
     } else {
       this.cartItems.forEach(item => this.$container.append(item.render()))
     }
+
+    this.$totalCounter = this.$root.find(CART_TOTAL_SELECTOR)
+    this.renderTotal()
   }
 }
