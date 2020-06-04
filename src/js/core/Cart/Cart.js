@@ -63,19 +63,17 @@ export class Cart extends Component {
     }
   }
 
-  clear() {
+  reset() {
     this.cartItems = []
-    this.$container.clear()
     this.total = 0
     this.count = 0
+    this.$container.clear()
   }
 
   renderTotal() {
     this.total = calcTotal(this.cartItems)
     this.$totalCounter.text(getPrice(this.total).toString())
   }
-
-  renderCount() {}
 
   afterRender() {
     super.afterRender()

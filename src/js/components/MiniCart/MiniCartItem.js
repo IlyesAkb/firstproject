@@ -1,9 +1,14 @@
 import {CartItem} from '@core/Cart/CartItem'
 import {getPrice} from '@core/utils'
+import {$} from '@core/dom'
 
 export class MiniCartItem extends CartItem {
-  constructor(product, className = '') {
-    super(product, className)
+  constructor(product) {
+    super(product)
+  }
+
+  getRoot() {
+    return $.create('div', 'cart-item')
   }
 
   toHTML() {

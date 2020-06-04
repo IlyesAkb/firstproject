@@ -1,4 +1,4 @@
-export function isDelete(target) {
+export function isRemove(target) {
   return target.dataset.type === 'cartRemove'
 }
 

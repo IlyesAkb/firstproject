@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-export function getTemplate() {
+export function createMiniCart() {
   return `
     <div class="header__mini-cart-btn mini-cart__btn" data-type="cartBtn">
         <img src="./assets/img/icon-cart.svg" alt="icon" data-type="cartBtn">
@@ -9,7 +9,7 @@ export function getTemplate() {
       99+
     </div>
 
-    <div class="mini-cart__dropdown">
+    <div class="mini-cart__dropdown" data-type="cartDropdown">
 
       <div class="mini-cart__items-container" data-type="cartContainer">
           

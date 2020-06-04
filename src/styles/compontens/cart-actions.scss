@@ -3,8 +3,9 @@
   justify-content: space-between;
   margin-top: 2rem;
 
-  & button {
+  & button, a {
     @include btn($light-text-color);
+    display: block;
     background: white;
     border: $default-border;
     text-transform: uppercase;

@@ -1,7 +1,5 @@
-import {$} from '@core/dom'
-
 export class CartItem {
-  constructor(product, className = '') {
+  constructor(product) {
     this.id = product.id
     this.name = product.name
     this.img = product.img
@@ -19,8 +17,12 @@ export class CartItem {
     return this.price * this.quantity
   }
 
+  getRoot() {
+    throw new Error('method getRoot is not implemented')
+  }
+
   render() {
-    this.$root = $.create('div', 'cart-item')
+    this.$root = this.getRoot()
     this.$root.attr('data-id', this.id.toString())
     this.$root.attr('data-type', 'cartItem')
     this.$root.html(this.toHTML())
