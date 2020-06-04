@@ -19,6 +19,7 @@
 @import "./compontens/cart-actions";
 @import "./compontens/cart-order";
 @import "./compontens/mini-cart";
+@import "./compontens/cart";
 
 body {
   font-size: $main-font-size;
@@ -35,6 +36,10 @@ a {
   text-decoration: none;
 }
 
+option, button, input, select {
+  outline: none;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -44,6 +49,7 @@ ul {
 .wrapper {
   min-height: 100vh;
   box-sizing: border-box;
+  padding-bottom: $footer-height;
 }
 
 .container {

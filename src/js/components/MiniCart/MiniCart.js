@@ -1,10 +1,13 @@
 import {Cart} from '@core/Cart/Cart'
 import {MiniCartItem} from '@/js/components/MiniCart/MiniCartItem'
-import {getTemplate} from '@/js/components/MiniCart/miniCart.template'
-import {isDelete} from '@core/Cart/cart.functions'
+import {createMiniCart} from '@/js/components/MiniCart/miniCart.template'
+import {isRemove} from '@core/Cart/cart.functions'
 import {isEmpty} from '@core/utils'
 import {$} from '@core/dom'
-import {CART_COUNTER_SELECTOR} from '@core/constants'
+import {
+  CART_COUNTER_SELECTOR,
+  MINI_CART_DROPDOWN_SELECTOR
+} from '@core/constants'
 
 export class MiniCart extends Cart {
   constructor($root, options = {}) {
@@ -37,7 +40,7 @@ export class MiniCart extends Cart {
   }
 
   toHTML() {
-    return getTemplate()
+    return createMiniCart()
   }
 
   updateCounter() {
@@ -55,14 +58,14 @@ export class MiniCart extends Cart {
 
   afterRender() {
     super.afterRender()
-    this.$dropdown = this.$root.find('.mini-cart__dropdown')
+    this.$dropdown = this.$root.find(MINI_CART_DROPDOWN_SELECTOR)
     this.$counter = this.$root.find(CART_COUNTER_SELECTOR)
     this.updateCounter()
   }
 
   onClick(event) {
     const $target = $(event.target)
-    if (isDelete(event.target)) {
+    if (isRemove(event.target)) {
       this.remove($target.data.id)
       this.updateCounter()
     } else if ($target.data.type === 'cartBtn') {

@@ -3,7 +3,9 @@
   color: $color;
   border: 1px solid $main-color;
   transition: .3s;
-  padding: 1em;
+  padding: 0 1em;
+  outline: none;
+  line-height: $btn-line-height;
 
   &:after {
     color: $color;
