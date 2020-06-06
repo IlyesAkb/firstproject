@@ -6,6 +6,7 @@ export class Component extends DomListener {
     if (options.observer) {
       this.observer = options.observer
     }
+    this.subscribtions = []
   }
 
   init() {}
@@ -21,7 +22,17 @@ export class Component extends DomListener {
     this.initListeners()
   }
 
+  subscribe(event, fn) {
+    const unsub = this.observer.subscribe(event, fn)
+    this.subscribtions.push(unsub)
+  }
+
+  dispatch(event, data) {
+    this.observer.emit(event, data)
+  }
+
   destroy() {
     this.removeListeners()
+    this.subscribtions.forEach(unsub => unsub())
   }
 }

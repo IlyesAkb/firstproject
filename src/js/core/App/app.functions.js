@@ -1,12 +1,12 @@
 import {HomePage} from '@/js/Pages/HomePage'
-import {Catalog} from '@/js/Pages/Catalog'
+import {CatalogPage} from '@/js/Pages/CatalogPage'
 import {CartPage} from '@/js/Pages/CartPage'
 
 export function routerConfig(options = {}) {
   return {
     routes: {
       home: HomePage,
-      catalog: Catalog,
+      catalog: CatalogPage,
       cart: CartPage
     },
     ...options

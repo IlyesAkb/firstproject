@@ -15,6 +15,7 @@
       text-transform: uppercase;
       font-weight: bold;
       transition: color .3s;
+      position: relative;
 
       &:hover {
         color: $main-color;
@@ -22,6 +23,16 @@
 
       &.active {
         color: $main-color;
+
+        &::after {
+          position: absolute;
+          content: '';
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 3px;
+          background-color: $main-color;
+        }
       }
     }
   }

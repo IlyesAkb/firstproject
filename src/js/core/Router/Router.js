@@ -1,4 +1,5 @@
 import {getPath, redirect} from '@core/Router/router.functions'
+import {DEFAULT_ROUTE} from '@core/constants'
 
 export class Router {
   constructor($root, options = {}) {
@@ -19,8 +20,12 @@ export class Router {
   changePageHandler() {
     const path = getPath()
 
+    if (this.currentPage) {
+      this.currentPage.destroy()
+    }
+
     if (!this.routes[path]) {
-      redirect('home')
+      redirect(DEFAULT_ROUTE)
     } else {
       const Page = this.routes[path]
       this.currentPage = new Page({observer: this.observer})

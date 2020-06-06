@@ -20,10 +20,15 @@ export class Page {
       const $componentRoot = this.$root.find(Component.selector)
       const component = new Component($componentRoot, {observer: this.observer})
       $componentRoot.html(component.render())
+      return component
     })
   }
 
   afterRender() {
     this.initComponents()
+  }
+
+  destroy() {
+    this.components.forEach(component => component.destroy())
   }
 }

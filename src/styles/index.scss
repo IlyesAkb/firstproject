@@ -125,3 +125,8 @@ ul {
     display: block;
   }
 }
+
+.page {
+  width: 100%;
+  transition: $transition-time;
+}

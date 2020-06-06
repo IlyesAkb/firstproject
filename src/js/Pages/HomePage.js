@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import {Page} from '@core/Page'
-import {ProductList} from '@/js/components/ProductList/ProductList'
+import {Featured} from '@comps/Featured/Featured'
 
 export class HomePage extends Page {
   constructor(options ={}) {
-    super([ProductList], options)
+    super([Featured], options)
   }
 
   toHTML() {
