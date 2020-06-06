@@ -51,7 +51,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      '@core': path.resolve(__dirname, 'src', 'js', 'core')
+      '@core': path.resolve(__dirname, 'src', 'js', 'core'),
+      '@comps': path.resolve(__dirname, 'src', 'js', 'components')
     }
   },
   devtool: isDev ? 'source-map' : false,

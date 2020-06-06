@@ -1,14 +1,16 @@
 import {Component} from '@core/Component'
+import {createLinks} from '@comps/Navbar/navbar.functions'
 
 export class Navbar extends Component {
   constructor($root, options = {}) {
     super($root, options)
+    this.links = options.links
     this.$current = null
     this.init()
   }
 
   init() {
-    this.observer.subscribe('router: change-page', page => {
+    this.subscribe('router: change-page', page => {
       if (this.$current) {
         this.$current.removeClass('active')
       }
@@ -20,9 +22,7 @@ export class Navbar extends Component {
   toHTML() {
     return `
       <ul class="main-nav__container">
-        <li><a href="#home" data-page="home">Home</a></li>
-        <li><a href="#catalog" data-page="catalog">Catalog</a></li>
-        <li><a href="#cart" data-page="cart">Cart</a></li>
+        ${createLinks(this.links)}
       </ul>
     `
   }

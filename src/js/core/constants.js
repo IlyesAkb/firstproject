@@ -5,3 +5,4 @@ export const CART_COUNTER_SELECTOR = '[data-type="cartCounter"]'
 export const ROUTER_SELECTOR = '[data-type="router"]'
 export const NAVBAR_SELECTOR = '[data-type="navbar"]'
 export const MINI_CART_DROPDOWN_SELECTOR = '[data-type="cartDropdown"]'
+export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl']

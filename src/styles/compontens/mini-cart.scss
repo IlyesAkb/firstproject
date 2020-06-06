@@ -23,7 +23,7 @@
   }
 
   &__dropdown {
-    display: none;
+    visibility: hidden;
     position: absolute;
     box-sizing: border-box;
     padding: 20px;
@@ -33,9 +33,12 @@
     border: $default-border;
     border-radius: 5px;
     left: -18px;
+    transition: $transition-time;
+    opacity: 0;
 
     &.active {
-      display: block;
+      visibility: visible;
+      opacity: 1;
     }
 
     &:after {

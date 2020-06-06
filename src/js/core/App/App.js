@@ -21,7 +21,10 @@ export class App {
     this.cart.render()
 
     const $navbar = this.$root.find(NAVBAR_SELECTOR)
-    this.navbar = new Navbar($navbar, {observer: this.observer})
+    this.navbar = new Navbar($navbar, {
+      observer: this.observer,
+      links: ['home', 'catalog', 'cart']
+    })
     this.navbar.render()
 
     const $router = this.$root.find(ROUTER_SELECTOR)

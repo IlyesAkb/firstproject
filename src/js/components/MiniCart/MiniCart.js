@@ -21,7 +21,7 @@ export class MiniCart extends Cart {
 
   init() {
     super.init()
-    this.observer.subscribe('product-list: add', product => {
+    this.subscribe('product-list: add', product => {
       this.add(product)
       this.updateCounter()
     })
@@ -33,6 +33,10 @@ export class MiniCart extends Cart {
         this.$dropdown.removeClass('active')
       }
     })
+  }
+
+  showDropdown() {
+    this.$dropdown.css({opacity: 1})
   }
 
   createItem(product) {
@@ -65,13 +69,12 @@ export class MiniCart extends Cart {
 
   onClick(event) {
     const $target = $(event.target)
+    const type = $target.data.type
     if (isRemove(event.target)) {
       this.remove($target.data.id)
       this.updateCounter()
-    } else if ($target.data.type === 'cartBtn') {
+    } else if (type === 'cartBtn' || type === 'goToCart') {
       this.$dropdown.toggleClass('active')
-    } else if ($target.data.type === 'goToCart') {
-      this.$dropdown.removeClass('active')
     }
   }
 }

@@ -1,8 +1,6 @@
 import {Component} from '@core/Component'
 import {Product} from '@/js/components/ProductList/Product'
-// import {PRODUCTS_LIST} from '@core/constants'
 import {isAdd} from '@/js/components/ProductList/porductList.functions'
-import {getItems} from '@core/utils'
 
 export class ProductList extends Component {
   constructor($root, options = {}) {
@@ -15,7 +13,7 @@ export class ProductList extends Component {
   }
 
   init() {
-    this.list = getItems(8)
+    this.list = this.getItems()
   }
 
   static selector = '[data-type="productList"]'
@@ -30,7 +28,11 @@ export class ProductList extends Component {
 
   addToCart(id) {
     const product = this.list.find(product => product.id === +id)
-    this.observer.emit('product-list: add', product)
+    this.dispatch('product-list: add', product)
+  }
+
+  getItems() {
+    throw new Error('method getItems is not implemented')
   }
 
   onClick(event) {
