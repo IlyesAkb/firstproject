@@ -11,7 +11,6 @@ export function rootReducer(state, action) {
         action.data.quantity = 1
         state.cartItems.push(action.data)
       }
-      console.log(state)
       return {...state}
 
     case CART_REMOVE:

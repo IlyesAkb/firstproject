@@ -74,7 +74,6 @@ export class MiniCart extends Cart {
   }
 
   add(product) {
-    console.log(this.cartItems)
     super.add(product);
     this.updateCounter()
     this.$dispatch(cartAdd(product))
@@ -84,7 +83,6 @@ export class MiniCart extends Cart {
     super.remove(id);
     this.$dispatch(cartRemove(id))
     this.updateCounter()
-    console.log(this.cartItems)
   }
 
   createItem(product) {
