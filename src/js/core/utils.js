@@ -15,6 +15,12 @@ export function isEmpty(array = []) {
   return array.length <= 0
 }
 
+export function isEqual(a, b) {
+  if (typeof a === 'object' && typeof b === 'object') {
+    return JSON.stringify(a) === JSON.stringify(b)
+  }
+}
+
 export function getItems(count) {
   if (!count || count < 0) {
     return

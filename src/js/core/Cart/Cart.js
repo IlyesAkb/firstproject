@@ -1,6 +1,6 @@
 import {Component} from '@core/Component'
 import {CART_CONTAINER_SELECTOR, CART_TOTAL_SELECTOR} from '@core/constants'
-import {getItems, getPrice, isEmpty} from '@core/utils'
+import {getPrice, isEmpty} from '@core/utils'
 import {calcCount, calcTotal} from '@core/Cart/cart.functions'
 
 export class Cart extends Component {
@@ -21,7 +21,8 @@ export class Cart extends Component {
   }
 
   init() {
-    this.cartItems = getItems(3).map(product => {
+    const items = this.store.getState().cartItems
+    this.cartItems = items.map(product => {
       return this.createItem(product)
     })
     this.count = calcCount(this.cartItems)
@@ -57,10 +58,6 @@ export class Cart extends Component {
 
     this.count = calcCount(this.cartItems)
     this.renderTotal()
-
-    if (isEmpty(this.cartItems)) {
-      this.$container.html('<h3 class="cart-item__empty">cart is empty</h3>')
-    }
   }
 
   reset() {

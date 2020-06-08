@@ -9,8 +9,10 @@ export class Navbar extends Component {
     this.init()
   }
 
+  static selector = '[data-type="navbar"]'
+
   init() {
-    this.subscribe('router: change-page', page => {
+    this.$subscribe('router: change-page', page => {
       if (this.$current) {
         this.$current.removeClass('active')
       }

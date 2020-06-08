@@ -6,6 +6,7 @@ export class Router {
     this.$root = $root
     this.routes = options.routes
     this.observer = options.observer
+    this.store = options.store
     this.currentPage = null
 
     this.changePageHandler = this.changePageHandler.bind(this)
@@ -19,6 +20,10 @@ export class Router {
 
   changePageHandler() {
     const path = getPath()
+    const pageOptions = {
+      observer: this.observer,
+      store: this.store
+    }
 
     if (this.currentPage) {
       this.currentPage.destroy()
@@ -28,14 +33,13 @@ export class Router {
       redirect(DEFAULT_ROUTE)
     } else {
       const Page = this.routes[path]
-      this.currentPage = new Page({observer: this.observer})
+      this.currentPage = new Page(pageOptions)
       this.observer.emit('router: change-page', path)
       this.renderPage()
     }
   }
 
   renderPage() {
-    this.$root.clear()
     this.$root.append(this.currentPage.render())
     this.currentPage.afterRender()
   }

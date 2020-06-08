@@ -1,9 +1,16 @@
 import {$} from '@core/dom'
+import {StoreSubscriber} from '@core/StoreSubscriber';
 
 export class Page {
   constructor(components = [], options = {}) {
     this.components = components
-    this.observer = options.observer || null
+    this.observer = options.observer
+    this.store = options.store
+    this.storeSubscriber = new StoreSubscriber(this.store)
+  }
+
+  getRoot() {
+    throw new Error('Method getRoot is not implemented')
   }
 
   render() {
@@ -16,9 +23,14 @@ export class Page {
   toHTML() {}
 
   initComponents() {
+    const componentOptions = {
+      observer: this.observer,
+      store: this.store
+    }
+
     this.components = this.components.map(Component => {
       const $componentRoot = this.$root.find(Component.selector)
-      const component = new Component($componentRoot, {observer: this.observer})
+      const component = new Component($componentRoot, componentOptions)
       $componentRoot.html(component.render())
       return component
     })
@@ -26,9 +38,11 @@ export class Page {
 
   afterRender() {
     this.initComponents()
+    this.storeSubscriber.subscribeComponents(this.components)
   }
 
   destroy() {
     this.components.forEach(component => component.destroy())
+    this.$root.remove()
   }
 }

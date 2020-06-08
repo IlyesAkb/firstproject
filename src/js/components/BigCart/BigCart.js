@@ -18,12 +18,19 @@ export class BigCart extends Cart {
 
   static selector = '[data-type="bigCart"]'
 
+  init() {
+    super.init()
+    this.$subscribe('mini-cart: remove', id => {
+      this.remove(id)
+    })
+  }
+
   delete(id) {
     const item = this.cartItems.find(item => item.id === +id)
-    console.log(id)
     item.remove()
 
     this.cartItems = this.cartItems.filter(item => item.id !== +id)
+    this.$emit('big-cart: delete', id)
 
     this.count = calcCount(this.cartItems)
     this.renderTotal()
@@ -42,6 +49,7 @@ export class BigCart extends Cart {
 
     item.quantity++
     item.update()
+    this.$emit('big-cart: add', item)
     this.count = calcCount(this.cartItems)
     this.renderTotal()
   }
@@ -56,7 +64,24 @@ export class BigCart extends Cart {
 
   clear() {
     this.reset()
+    this.$emit('big-cart: clear')
     this.$root.html(createEmptyTemplate())
+  }
+
+  remove(id) {
+    super.remove(id);
+
+    if (isEmpty(this.cartItems)) {
+      this.clear()
+    }
+  }
+
+  afterRender() {
+    super.afterRender();
+
+    if (isEmpty(this.cartItems)) {
+      this.clear()
+    }
   }
 
   onClick(event) {
@@ -69,6 +94,7 @@ export class BigCart extends Cart {
     } else if (type === 'cartAdd') {
       this.incQuantity(id)
     } else if (type === 'cartRemove') {
+      this.$emit('big-cart: remove', id)
       this.remove(id)
       if (!this.cartItems.length) {
         this.clear()
