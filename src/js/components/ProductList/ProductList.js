@@ -28,7 +28,7 @@ export class ProductList extends Component {
 
   addToCart(id) {
     const product = this.list.find(product => product.id === +id)
-    this.dispatch('product-list: add', product)
+    this.$emit('product-list: add', product)
   }
 
   getItems() {

@@ -6,7 +6,10 @@ export class Component extends DomListener {
     if (options.observer) {
       this.observer = options.observer
     }
-    this.subscribtions = []
+    this.store = options.store
+    this.subscribes = options.subscribes || []
+    this.unsubscribers = []
+    // console.log(this.store.getState())
   }
 
   init() {}
@@ -22,17 +25,35 @@ export class Component extends DomListener {
     this.initListeners()
   }
 
-  subscribe(event, fn) {
+  $subscribe(event, fn) {
+    if (Array.isArray(event)) {
+      event.forEach(event => {
+        const unsub = this.observer.subscribe(event, fn)
+        this.unsubscribers.push(unsub)
+      })
+    }
     const unsub = this.observer.subscribe(event, fn)
-    this.subscribtions.push(unsub)
+    this.unsubscribers.push(unsub)
   }
 
-  dispatch(event, data) {
+  $emit(event, data) {
     this.observer.emit(event, data)
+  }
+
+  $dispatch(action) {
+    this.store.dispatch(action)
+  }
+
+  isWatching(key) {
+    return this.subscribes.includes(key)
+  }
+
+  storeChanged(data) {
+    console.log('hello')
   }
 
   destroy() {
     this.removeListeners()
-    this.subscribtions.forEach(unsub => unsub())
+    this.unsubscribers.forEach(unsub => unsub())
   }
 }

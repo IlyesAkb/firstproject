@@ -130,3 +130,9 @@ ul {
   width: 100%;
   transition: $transition-time;
 }
+
+.router {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}

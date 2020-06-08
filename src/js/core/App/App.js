@@ -1,28 +1,31 @@
 import {$} from '@core/dom'
+import {routerConfig} from '@core/App/app.functions'
 import {Router} from '@core/Router/Router'
 import {Observer} from '@core/Observer'
-import {routerConfig} from '@core/App/app.functions'
 import {MiniCart} from '@/js/components/MiniCart/MiniCart'
-import {NAVBAR_SELECTOR, ROUTER_SELECTOR} from '@core/constants'
 import {Navbar} from '@/js/components/Navbar/Navbar'
+import {ROUTER_SELECTOR} from '@core/constants'
 
 export class App {
   constructor($root, options = {}) {
     this.$root = $($root)
-    this.components = options.components || []
-    this.pages = options.pages || {}
+    this.store = options.store
   }
 
   init() {
     this.observer = new Observer()
+    const options = {
+      observer: this.observer,
+      store: this.store
+    }
 
-    const $cartRoot = this.$root.find('[data-type="miniCart"]')
-    this.cart = new MiniCart($cartRoot, {observer: this.observer})
+    const $cartRoot = this.$root.find(MiniCart.selector)
+    this.cart = new MiniCart($cartRoot, options)
     this.cart.render()
 
-    const $navbar = this.$root.find(NAVBAR_SELECTOR)
+    const $navbar = this.$root.find(Navbar.selector)
     this.navbar = new Navbar($navbar, {
-      observer: this.observer,
+      ...options,
       links: ['home', 'catalog', 'cart']
     })
     this.navbar.render()
@@ -30,7 +33,7 @@ export class App {
     const $router = this.$root.find(ROUTER_SELECTOR)
     this.router = new Router(
         $router,
-        routerConfig({observer: this.observer})
+        routerConfig(options)
     )
   }
 }

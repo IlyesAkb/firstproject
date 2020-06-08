@@ -4,10 +4,11 @@ export class CartItem {
     this.name = product.name
     this.img = product.img
     this.price = product.price
-    this.quantity = 1
+    this.quantity = product.quantity || 1
   }
 
-  init() {}
+  init() {
+  }
 
   remove() {
     this.$root.remove()
@@ -35,5 +36,15 @@ export class CartItem {
 
   toHTML() {
     throw new Error('Method toHTML is not implemented')
+  }
+
+  toObject() {
+    return {
+      id: this.id,
+      name: this.name,
+      price: this.price,
+      img: this.img,
+      quantity: this.quantity
+    }
   }
 }
