@@ -1,39 +1,46 @@
-import {$} from '@core/dom'
 import {routerConfig} from '@core/App/app.functions'
 import {Router} from '@core/Router/Router'
-import {Observer} from '@core/Observer'
-import {MiniCart} from '@/js/components/MiniCart/MiniCart'
 import {Navbar} from '@/js/components/Navbar/Navbar'
+import {Component} from '@core/Component';
+import {Header} from '@comps/Header/Header';
+import {Footer} from '@comps/Footer/Footer';
 import {ROUTER_SELECTOR} from '@core/constants'
 
-export class App {
+export class App extends Component {
   constructor($root, options = {}) {
-    this.$root = $($root)
-    this.store = options.store
+    super($root, {
+      ...options,
+      components: [Header, Navbar, Footer]
+    });
   }
 
-  init() {
-    this.observer = new Observer()
-    const options = {
+  start() {
+    this.render()
+  }
+
+  afterRender() {
+    super.afterRender();
+    const $routerRoot = this.$root.find(ROUTER_SELECTOR)
+    const routerOptions = routerConfig({
       observer: this.observer,
       store: this.store
-    }
-
-    const $cartRoot = this.$root.find(MiniCart.selector)
-    this.cart = new MiniCart($cartRoot, options)
-    this.cart.render()
-
-    const $navbar = this.$root.find(Navbar.selector)
-    this.navbar = new Navbar($navbar, {
-      ...options,
-      links: ['home', 'catalog', 'cart']
     })
-    this.navbar.render()
+    this.router = new Router($routerRoot, routerOptions)
+  }
 
-    const $router = this.$root.find(ROUTER_SELECTOR)
-    this.router = new Router(
-        $router,
-        routerConfig(options)
-    )
+  toHTML() {
+    return `
+      <div class="wrapper">
+      
+        <header class="header" data-type="header"></header>
+        
+        <nav class="main-nav" data-type="navbar"></nav>
+        
+        <div class="router" data-type="router"></div>
+      
+      </div>
+      
+      <footer class="footer" data-type="footer"></footer>
+    `
   }
 }

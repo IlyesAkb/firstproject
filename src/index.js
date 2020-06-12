@@ -1,10 +1,5 @@
 import './styles/index.scss'
-import {App} from '@core/App/App'
-import {createStore} from '@core/Store/createStore';
-import {rootReducer} from '@/js/redux/rootReducer';
-import {defaultState} from '@/js/redux/initialState';
+import {createApp} from '@core/App/app.functions';
 
-
-const store = createStore(rootReducer, defaultState)
-const app = new App('#app', {store})
-app.init()
+const app = createApp()
+app.start()

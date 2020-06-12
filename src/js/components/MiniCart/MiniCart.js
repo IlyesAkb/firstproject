@@ -59,6 +59,7 @@ export class MiniCart extends Cart {
     this.$dispatch(cartClear())
     this.reset()
     this.updateCounter()
+    this.renderTotal()
   }
 
   delete(id) {

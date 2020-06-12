@@ -1,4 +1,5 @@
 import {DomListener} from '@core/DomListener'
+import {StoreSubscriber} from '@core/StoreSubscriber';
 
 export class Component extends DomListener {
   constructor($root, options = {}) {
@@ -9,12 +10,31 @@ export class Component extends DomListener {
     this.store = options.store
     this.subscribes = options.subscribes || []
     this.unsubscribers = []
-    // console.log(this.store.getState())
+    this.components = options.components || []
+
+    if (this.components.length) {
+      this.storeSubscriber = new StoreSubscriber(this.store)
+    }
   }
 
   init() {}
 
-  toHTML() {}
+  toHTML() {
+  }
+
+  initComponents() {
+    const componentOptions = {
+      observer: this.observer,
+      store: this.store
+    }
+
+    this.components = this.components.map(Component => {
+      const $componentRoot = this.$root.find(Component.selector)
+      const component = new Component($componentRoot, componentOptions)
+      $componentRoot.html(component.render())
+      return component
+    })
+  }
 
   render() {
     this.$root.html(this.toHTML())
@@ -23,6 +43,8 @@ export class Component extends DomListener {
 
   afterRender() {
     this.initListeners()
+    this.initComponents()
+    this.subscribeComponents()
   }
 
   $subscribe(event, fn) {
@@ -48,12 +70,23 @@ export class Component extends DomListener {
     return this.subscribes.includes(key)
   }
 
-  storeChanged(data) {
-    console.log('hello')
+  storeChanged(data) {}
+
+  subscribeComponents() {
+    if (this.storeSubscriber) {
+      this.storeSubscriber.subscribeComponents(this.components)
+    }
+  }
+
+  unsubscribeComponents() {
+    if (this.storeSubscriber) {
+      this.storeSubscriber.unsubscribe()
+    }
   }
 
   destroy() {
     this.removeListeners()
     this.unsubscribers.forEach(unsub => unsub())
+    this.unsubscribeComponents()
   }
 }
