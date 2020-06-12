@@ -1,4 +1,10 @@
-import {CART_ADD, CART_CLEAR, CART_DELETE, CART_REMOVE} from '@/js/redux/types';
+import {
+  CART_ADD,
+  CART_CLEAR,
+  CART_DELETE,
+  CART_REMOVE,
+  CHANGE_PAGE
+} from '@/js/redux/types';
 
 export function cartAdd(data) {
   return {
@@ -24,5 +30,12 @@ export function cartDelete(data) {
 export function cartClear() {
   return {
     type: CART_CLEAR
+  }
+}
+
+export function changePage(data) {
+  return {
+    type: CHANGE_PAGE,
+    data
   }
 }

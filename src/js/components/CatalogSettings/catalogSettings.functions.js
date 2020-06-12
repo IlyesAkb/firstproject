@@ -1,8 +1,8 @@
 import * as noUiSlider from 'nouislider/distribute/nouislider'
 import {getPrice} from '@core/utils'
 
-export function initSlider() {
-  const slider = document.querySelector('[data-type="catalogSlider"]')
+export function initSlider(root) {
+  const slider = root.querySelector('[data-type="catalogSlider"]')
   noUiSlider.create(slider, {
     start: [40, 100],
     step: 10,

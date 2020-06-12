@@ -20,6 +20,6 @@ export class CatalogSettings extends Component {
 
   afterRender() {
     super.afterRender()
-    this.slider = initSlider()
+    this.slider = initSlider(this.$root.$el)
   }
 }

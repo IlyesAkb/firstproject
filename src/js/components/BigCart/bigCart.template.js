@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 export function createBigCart() {
   return `
-    <div class="container cart__container">
+    <div class="cart">
+      <div class="container cart__container">
 
-        <!--cart table-->
         <table class="cart__table">
 
           <thead>
@@ -40,6 +40,7 @@ export function createBigCart() {
         </div>
 
       </div>
+    </div>
   `
 }
 

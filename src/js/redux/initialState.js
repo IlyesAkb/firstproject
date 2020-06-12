@@ -1,3 +1,4 @@
 export const defaultState = {
-  cartItems: []
+  cartItems: [],
+  currentPage: 'home'
 }

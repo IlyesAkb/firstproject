@@ -1,7 +1,11 @@
 import {getHandlerName} from '@core/utils'
+import {$} from '@core/dom'
 
 export class DomListener {
   constructor($root, listeners = []) {
+    if (typeof $root === 'string') {
+      $root = $($root)
+    }
     this.$root = $root
     this.listeners = listeners
   }

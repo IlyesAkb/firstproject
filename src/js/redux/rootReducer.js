@@ -1,4 +1,10 @@
-import {CART_ADD, CART_CLEAR, CART_DELETE, CART_REMOVE} from '@/js/redux/types';
+import {
+  CART_ADD,
+  CART_CLEAR,
+  CART_DELETE,
+  CART_REMOVE,
+  CHANGE_PAGE
+} from '@/js/redux/types';
 
 export function rootReducer(state, action) {
   let candidate
@@ -17,7 +23,7 @@ export function rootReducer(state, action) {
       candidate = state.cartItems.find(item => item.id === +action.data)
       if (candidate.quantity <= 1) {
         state.cartItems =
-            state.cartItems.filter(item => item.id !== +action.data)
+          state.cartItems.filter(item => item.id !== +action.data)
       } else {
         candidate.quantity--
       }
@@ -29,6 +35,9 @@ export function rootReducer(state, action) {
     case CART_DELETE:
       state.cartItems = state.cartItems.filter(i => i.id !== +action.data)
       return {...state}
+
+    case CHANGE_PAGE:
+      return {...state, currentPage: action.data}
 
     default:
       return state
