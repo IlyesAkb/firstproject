@@ -4,9 +4,10 @@ import {getItems} from '@core/utils'
 export class FeaturedList extends ProductList {
   constructor($root, options = {}) {
     super($root, options)
+    this.init()
   }
 
-  getItems() {
-    return getItems(8)
+  init() {
+    this.list = getItems(8)
   }
 }

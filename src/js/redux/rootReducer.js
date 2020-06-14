@@ -18,7 +18,6 @@ export function rootReducer(state, action) {
         state.cartItems.push(action.data)
       }
       return {...state}
-
     case CART_REMOVE:
       candidate = state.cartItems.find(item => item.id === +action.data)
       if (candidate.quantity <= 1) {
@@ -28,17 +27,13 @@ export function rootReducer(state, action) {
         candidate.quantity--
       }
       return {...state}
-
     case CART_CLEAR:
       return {...state, cartItems: []}
-
     case CART_DELETE:
       state.cartItems = state.cartItems.filter(i => i.id !== +action.data)
       return {...state}
-
     case CHANGE_PAGE:
       return {...state, currentPage: action.data}
-
     default:
       return state
   }

@@ -8,7 +8,9 @@ export class Navbar extends Component {
       ...options,
       subscribes: ['currentPage']
     })
+
     this.$current = null
+    this.init()
   }
 
   static selector = '[data-type="navbar"]'

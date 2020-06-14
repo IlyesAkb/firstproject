@@ -40,7 +40,6 @@ export class Router {
     } else {
       const Page = this.routes[path]
       this.currentPage = new Page(this.$placeholder, pageOptions)
-      // this.observer.emit('router: change-page', path)
       this.store.dispatch(changePage(path))
       this.renderPage()
       window.scroll(0, 0)

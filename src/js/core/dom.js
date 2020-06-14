@@ -1,8 +1,8 @@
 class DomElement {
   constructor(selector) {
     this.$el = typeof selector === 'string'
-        ? document.querySelector(selector)
-        : selector
+      ? document.querySelector(selector)
+      : selector
   }
 
   html(html) {
@@ -75,12 +75,40 @@ class DomElement {
     return this.$el.getAttribute(name)
   }
 
-  find(selector) {
-    return $(this.$el.querySelector(selector))
+  value(value) {
+    if (typeof value === 'string') {
+      this.$el.value = value
+      return this
+    }
+    return this.$el.value
+  }
+
+  set width(width) {
+    this.css({width: width + 'px'})
+  }
+
+  get width() {
+    return this.$el.clientWidth
+  }
+
+  get name() {
+    return this.$el.name
+  }
+
+  get cords() {
+    const cords = this.$el.getBoundingClientRect()
+    return {
+      top: cords.top - pageYOffset,
+      left: cords.left - pageXOffset
+    }
   }
 
   get data() {
     return this.$el.dataset
+  }
+
+  find(selector) {
+    return $(this.$el.querySelector(selector))
   }
 
   on(event, handler) {
@@ -99,7 +127,7 @@ export function $($el) {
   return new DomElement($el)
 }
 
-$.create = function(tagName, classes = '') {
+$.create = (tagName, classes = '') => {
   const $el = document.createElement(tagName)
 
   if (classes) {

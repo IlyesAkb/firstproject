@@ -75,11 +75,7 @@ export class Cart extends Component {
   afterRender() {
     super.afterRender()
     this.$container = this.$root.find(CART_CONTAINER_SELECTOR)
-    if (isEmpty(this.cartItems)) {
-      this.$container.html('<h3>cart is empty</h3>')
-    } else {
-      this.cartItems.forEach(item => this.$container.append(item.render()))
-    }
+    this.cartItems.forEach(item => this.$container.append(item.render()))
 
     this.$totalCounter = this.$root.find(CART_TOTAL_SELECTOR)
     this.renderTotal()
