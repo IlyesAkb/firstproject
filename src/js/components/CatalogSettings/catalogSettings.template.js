@@ -38,8 +38,9 @@ export function createCatalogSettings() {
 
       <div class="catalog__form-bottom-select">
         <label for="show">Show</label>
-        <select name="show" id="show">
+        <select name="show" id="show" data-type="itemCount">
           <option value="9">09</option>
+          <option value="15">15</option>
         </select>
       </div>
 

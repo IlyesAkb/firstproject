@@ -1,6 +1,16 @@
 .mini-cart {
   position: relative;
 
+  & .empty {
+    text-transform: uppercase;
+    text-align: center;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
   &__counter {
     display: none;
     position: absolute;
@@ -35,6 +45,14 @@
     left: -18px;
     transition: $transition-time;
     opacity: 0;
+
+    &-content {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
 
     &.active {
       visibility: visible;
@@ -104,6 +122,7 @@
       justify-self: flex-end;
       align-self: center;
       user-select: none;
+      cursor: pointer;
 
       &:hover {
         color: $text-color;

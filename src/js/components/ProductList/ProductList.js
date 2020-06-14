@@ -9,17 +9,16 @@ export class ProductList extends Component {
       listeners: ['click']
     })
     this.list = []
-    this.init()
-  }
-
-  init() {
-    this.list = this.getItems()
   }
 
   static selector = '[data-type="productList"]'
 
   afterRender() {
     super.afterRender()
+    this.renderItems()
+  }
+
+  renderItems() {
     this.list.forEach(product => {
       product = new Product(product)
       this.$root.append(product.render())
@@ -29,10 +28,6 @@ export class ProductList extends Component {
   addToCart(id) {
     const product = this.list.find(product => product.id === +id)
     this.$emit('product-list: add', product)
-  }
-
-  getItems() {
-    throw new Error('method getItems is not implemented')
   }
 
   onClick(event) {

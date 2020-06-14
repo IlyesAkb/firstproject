@@ -41,6 +41,7 @@
         border-radius: 3px;
         background-color: #f0f0f0;
         border: none;
+        cursor: pointer;
 
         & .noUi {
 
@@ -58,6 +59,7 @@
             top: -4px;
             outline: none;
             border: none;
+            cursor: pointer;
 
             &:before, &:after {
               display: none;

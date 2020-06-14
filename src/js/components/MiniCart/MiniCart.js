@@ -1,6 +1,6 @@
 import {Cart} from '@core/Cart/Cart'
 import {MiniCartItem} from '@/js/components/MiniCart/MiniCartItem'
-import {createMiniCart} from '@/js/components/MiniCart/miniCart.template'
+import {createMiniCart} from '@comps/MiniCart/miniCart.template'
 import {isRemove} from '@core/Cart/cart.functions'
 import {isEmpty} from '@core/utils'
 import {$} from '@core/dom'
@@ -60,6 +60,7 @@ export class MiniCart extends Cart {
     this.reset()
     this.updateCounter()
     this.renderTotal()
+    this.toggleDropdownContent()
   }
 
   delete(id) {
@@ -69,12 +70,19 @@ export class MiniCart extends Cart {
     this.cartItems = this.cartItems.filter(i => i.id !== +id)
 
     this.$dispatch(cartDelete(id))
-
     this.updateCounter()
     this.renderTotal()
+
+    if (isEmpty(this.cartItems)) {
+      this.clear()
+    }
   }
 
   add(product) {
+    if (!isEmpty(this.cartItems)) {
+      this.toggleDropdownContent()
+    }
+
     super.add(product);
     this.updateCounter()
     this.$dispatch(cartAdd(product))
@@ -84,6 +92,10 @@ export class MiniCart extends Cart {
     super.remove(id);
     this.$dispatch(cartRemove(id))
     this.updateCounter()
+
+    if (isEmpty(this.cartItems)) {
+      this.toggleDropdownContent()
+    }
   }
 
   createItem(product) {
@@ -107,11 +119,27 @@ export class MiniCart extends Cart {
     }
   }
 
+  toggleDropdownContent() {
+    const $placeHolder = this.$dropdown.find('[data-type="placeholder"]')
+    const $dropdownContent =
+      this.$dropdown.find('[data-type="dropdownContent"]')
+
+
+    if (isEmpty(this.cartItems)) {
+      $dropdownContent.removeClass('active')
+      $placeHolder.addClass('active')
+    } else {
+      $dropdownContent.addClass('active')
+      $placeHolder.removeClass('active')
+    }
+  }
+
   afterRender() {
     super.afterRender()
     this.$dropdown = this.$root.find(MINI_CART_DROPDOWN_SELECTOR)
     this.$counter = this.$root.find(CART_COUNTER_SELECTOR)
     this.updateCounter()
+    this.toggleDropdownContent()
   }
 
   onClick(event) {

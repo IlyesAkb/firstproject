@@ -23,6 +23,7 @@
 }
 
 @mixin fa-icon($content: '') {
+  display: inline-block;
   font-family: 'FontAwesome', sans-serif;
   content: $content;
   transition: $transition-time;

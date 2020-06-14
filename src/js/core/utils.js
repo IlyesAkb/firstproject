@@ -30,7 +30,7 @@ export function getItems(count) {
   for (let i = 0; i < count; i++) {
     items.push({
       id: i + 1,
-      name: 'mongo people t-shirt',
+      name: 'mongo people t-shirt' + i,
       price: 52,
       img: './assets/img/products/product-img-1.jpg'
     })
